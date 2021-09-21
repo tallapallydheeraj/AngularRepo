@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="row">
+
+    <div class=" col-lg-4  col-sm-2 " >
+      <ngx-charts-number-card
+        [scheme]="colorScheme1"
+        [view]="[350,220]"
+        [results]="custodiancard"
+        [cardColor]="cardColor">
+        
+      </ngx-charts-number-card>
+    
+    </div>
+  <div class=" col-lg-4  col-sm-2 " >
+  <ngx-charts-number-card
+    [scheme]="colorScheme2"
+    [view]="[350,220]"
+    [results]="clientcard"
+    [cardColor]="cardColor">
+    
+  </ngx-charts-number-card>
+
+</div>
+
+<br>
+
+  <div class="col-lg-4 col-sm-2 " >
+  <ngx-charts-number-card
+    [scheme]="colorScheme3"
+    [view]="[350,220]"
+    [results]="buycard"
+    [cardColor]="cardColor">
+    
+  </ngx-charts-number-card>
+
+</div>
+
+
+  <div class=" col-lg-4  " >
+  <ngx-charts-number-card
+    [scheme]="colorScheme4"
+    [view]="[350,220]"
+    [results]="sellcard"
+    [cardColor]="cardColor">
+    
+  </ngx-charts-number-card>
+
+</div>
+
+  <div class="col-lg-4 " >
+  <ngx-charts-number-card
+    [scheme]="colorScheme5"
+    [view]="[350,220]"
+    [results]="transactioncard"
+    [cardColor]="cardColor">
+    
+  </ngx-charts-number-card>
+
+
+</div>
+
+
+    <div class="col-lg-4 " >
+    <ngx-charts-number-card
+      [scheme]="colorScheme6"
+      [view]="[350,220]"
+      [results]="stockcard"
+      [cardColor]="cardColor">
+      
+    </ngx-charts-number-card>
+
+</div>
+</div>
+</div>
+<!-- <div class="container offset-2" *ngIf="cardflag==0">
+    <h1></h1>
+
+</div> -->
+
+
+    <div class="col-sm-4 offset-1" *ngIf="pieflag" >
+      
+    <ngx-charts-advanced-pie-chart
+    [scheme]="colorScheme7"
+  [view]="[1000,300]"
+  [gradient]="false"
+  [results]="data"
+  
+  
+
+  
+  >
+</ngx-charts-advanced-pie-chart>
+
+    </div>
+    <div class="offset-4">
+    <pre style="font-family: sans-serif; font-weight: bold; "><h3><b>Total Instruments</b></h3></pre>
+  </div>
+    <app-graph></app-graph>

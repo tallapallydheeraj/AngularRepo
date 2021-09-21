@@ -1,0 +1,94 @@
+<br>
+
+<div class="container ">
+    <div class="row ">
+        <div class="col-lg-6">
+            <h2  >Report of Client Buys </h2>
+        <table class="table table-striped table-info">
+
+            <thead>
+                <tr>
+                    <th scope="col">Client ID</th>
+                    <th scope="col">Total Buy Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of clientbuys">
+
+                    <td>{{t[0]}}</td>
+                    <td *ngIf="t[1]==null">{{zero|currency:"INR"}}</td>
+                    <td *ngIf="t[1]!=null">{{t[1]|currency:"INR"}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-lg-6">
+        <h2>Report of Client Sells </h2>
+        <table class="table table-striped table-success">
+
+            <thead>
+                <tr>
+                    <th scope="col">Client ID</th>
+                    <th scope="col">Total Sell Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of clientsells">
+
+                    <td>{{t[0]}}</td>
+                    <td *ngIf="t[1]==null">{{zero|currency:"INR"}}</td>
+                    <td *ngIf="t[1]!=null">{{t[1]|currency:"INR"}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        </div>
+        </div>
+        <div class="row ">
+        <div class="col-lg-6">
+            <h2>Report of Custodian Buys </h2>
+        <table class="table table-striped table-primary">
+
+            <thead>
+                <tr>
+                    <th scope="col">Custodian ID</th>
+                    <th scope="col">Total Buy Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of custodianbuys">
+
+                    <td>{{t[0]}}</td>
+                    <td *ngIf="t[1]==null">{{zero|currency:"INR"}}</td>
+                    <td *ngIf="t[1]!=null">{{t[1]|currency:"INR"}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        </div>
+
+        <div class="col-lg-6">
+            <h2>Report of Custodian Sells  </h2>
+        <table class="table table-striped table-secondary">
+
+            <thead>
+                <tr>
+                    <th scope="col">Custodian ID</th>
+                    <th scope="col">Total Sell Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of custodiansells">
+
+                    <td>{{t[0]}}</td>
+                    <td *ngIf="t[1]==null">{{zero|currency:"INR"}}</td>
+                    <td *ngIf="t[1]!=null">{{t[1]|currency:"INR"}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>

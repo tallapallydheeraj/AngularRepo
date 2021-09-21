@@ -1,0 +1,35 @@
+<br>
+<div class="container-fluid">
+<div class="container1">
+<table class="table table-striped table-dark">
+   
+    <thead>
+      <tr>
+        <th scope="col">Trade Id</th>
+        <th scope="col">Buyer</th>
+        <th scope="col">Seller</th>
+        <th scope="col">Instrument</th>
+         
+         <th scope="col">Price</th>
+         <th scope="col">Quantity</th>
+         <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let t of tradehistory">
+        
+        <td>{{t.tradeId}}</td>
+        <td>{{t.buyer}}</td>
+        <td>{{t.seller}}</td>
+        <td>{{t.instrumentName}}</td>
+        <td>{{t.price}}</td>
+        <td>{{t.quantity}}</td>
+        <td>{{t.tradeDate|date:"dd-MM-yyyy"}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+
+</div>
+</div>

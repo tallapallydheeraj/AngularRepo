@@ -1,0 +1,28 @@
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+    <li class="nav-item" >
+      <a class="nav-link" routerLink="home" routerLinkActive="active"  >Home</a>
+    </li>
+    <li  class="nav-item" >
+      <a class="nav-link" routerLink="login" routerLinkActive="active" *ngIf="!loggedIn()">Login</a>
+    </li>
+    <li  class="nav-item" >
+      <a class="nav-link" routerLink="dashboard" routerLinkActive="active" *ngIf="loggedIn()">Dashboard</a>
+    </li>
+    <li  class="nav-item" >
+        <a class="nav-link" routerLink="order" routerLinkActive="active" *ngIf="loggedIn()">Order</a>
+      </li>
+      <li  class="nav-item" >
+        <a class="nav-link" routerLink="history" routerLinkActive="active" *ngIf="loggedIn()">History</a>
+      </li>
+      <li  class="nav-item" >
+        <a class="nav-link" routerLink="report" routerLinkActive="active" *ngIf="loggedIn()">Report</a>
+      </li>
+      
+      <li  class="nav-item" id="logout"  >
+        <a class="nav-link" routerLink="logout" (click)="logout()" routerLinkActive="active" *ngIf="loggedIn()">Logout</a>
+      </li>
+
+    
+      
+      </ul>

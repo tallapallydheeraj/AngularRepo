@@ -1,0 +1,137 @@
+<form #orderForm="ngForm" (ngSubmit)="orderForm.form.valid && RegisterOrder(orderForm)" novalidate>
+    <div class="col-md-4 offset-md-4">
+        <h1>Place your order here</h1>
+    </div>
+    
+    <div class="col-md-4 offset-md-4">
+        <div class="form-group">
+            <label for="clientid" 
+            class="form-label mt-4">Client ID</label>
+                <select 
+                id="clientid" 
+                name="clientid" 
+                [(ngModel)]="clientId" (change)="selected2(clientId)"
+
+                class="form-select">
+                   
+                    <option 
+                    *ngFor="let c of client"
+                    [value]="c.clientId"
+                    >
+                    {{c.clientId}}
+                    </option>
+                    
+                </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="clientname" class="form-label mt-4">Client Name</label>
+            <input type="text" class="form-control" id="clientname" name="clientname" aria-describedby="clientname"
+             [value]="clientDetails.clientName"  readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="instrumentid" 
+            class="form-label mt-4">Instrument ID</label>
+                <select 
+                id="instrumentid" 
+                name="instrumentid" 
+                  [(ngModel)]="instrumentId" (change)="selected3(instrumentId)"
+                  (change)="selected1(instrumentId)"
+                class="form-select" >
+                   
+                    <option *ngFor="let i of instruments" 
+                    [value]="i.instrumentId"
+                    
+                    >{{i.instrumentId}}
+                    </option>
+                      
+                </select>
+        </div>
+        
+        
+        <div class="form-group">
+            <label for="instrumentname" class="form-label mt-4">Instrument Name</label>
+            <input type="text" class="form-control" required  id="instrumentname" name="instrumentname" aria-describedby="instrumentname"
+              [value]="instrumentDetails.instrumentName"  readonly/>
+        </div>
+       
+        
+
+
+                <div class="form-group">
+                    <label for="facevalue" class="form-label mt-4">Face Value</label>
+                    <input type="number" class="form-control" required  id="facevalue" name="facevalue" aria-describedby="facevalue"
+                     [value]="instrumentDetails.faceValue"  readonly />
+                </div>
+                <br>
+        <!-- <div class="form-group">
+            <label>Date:</label>
+            <div class="input-group">
+            <input type="date" class="form-control" id="BirthDate" name="BirthDate"
+            [ngModel]="BirthDate | date:'yyyy-MM-dd'" formControlName="BirthDate">
+            </div>
+            </div> -->
+
+            <div class="form-group">
+                <label for="date" class="form-label mt-4">Date</label>
+                <input type="text" class="form-control"  id="date" name="date" aria-describedby="date"
+                 [value]="instrumentDetails.expiryDate==null?'NA':instrumentDetails.expiryDate|date:'dd-MM-yyyy'" readonly />
+            </div>
+       
+
+        
+        <div class="form-group">
+            <label for="price" class="form-label mt-4">Price</label>
+            <input type="number" class="form-control" required  id="price" name="price" aria-describedby="price"
+             value="price" [(ngModel)]="price" (keyup)="selected4()"/>
+        </div>
+        <div *ngIf="priceflag==1" class="alert alert-danger mt-6" role="alert">
+            Price must be greater than the FaceValue
+             </div>
+
+    
+        <div class="form-group">
+            <label for="quantity" class="form-label mt-4">Quantity</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" aria-describedby="quantity"
+             value="quantity" placeholder="Enter the values in multiples of 25"
+              required [(ngModel)]="quantity" (keyup)="selected()">
+        </div>
+        <div *ngIf="flag==1" class="alert alert-danger mt-6" role="alert">
+        Quantity must be in multiples of 25
+         </div>
+        
+        <div class="form-group">
+            <label for="direction" 
+            class="form-label mt-4">Direction</label>
+                <select [(ngModel)]="direction1" (change)="selected()"
+                
+                id="direction" 
+                name="direction" 
+                   
+                class="form-select">
+                
+                    <option *ngFor= "let dir of direction "
+                    [value]="dir.value" 
+                    
+                    >{{dir.name}}
+                    </option>
+                    
+                </select>
+                
+        </div>
+        <div *ngIf="flag1==1" class="alert alert-danger mt-6" role="alert">
+            Instrument Quantity is insufficient
+             </div>
+        <div class="form-group mt-4">
+
+            <button type="submit" [disabled]="!orderForm.valid || flag1==1 || flag==1 ||priceflag==1"  class="btn btn-primary">Submit</button>
+        </div>
+        
+        
+        </div>
+        
+
+        </form>
+    
+       
